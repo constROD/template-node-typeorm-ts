@@ -1,4 +1,4 @@
-# Custom Template Node TypeScript
+# Custom Template Node TypeORM TypeScript
 
 ## Installation:
 
