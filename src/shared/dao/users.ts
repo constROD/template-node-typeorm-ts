@@ -7,7 +7,7 @@ export const retrieveUserDao = async () => {
     console.log("data: ", data);
     return data;
   } catch (err) {
-    console.log("Error retrieveUserDao: ", err.response);
+    console.log("Error retrieveUserDao: ", err);
     return [];
   }
 };
