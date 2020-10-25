@@ -4,7 +4,7 @@ import { createConnection } from "typeorm";
 import app from "./App";
 import { APP_PORT, APP_ZONE } from "./shared/configs/app";
 import { ORM_CONFIG } from "./shared/configs/orm";
-import { retrieveUserDao } from "./shared/dao/users";
+import { createUserDao } from "./shared/dao/users";
 
 if (APP_ZONE === "production") {
   const sslCertificates = {
@@ -23,6 +23,7 @@ if (APP_ZONE === "production") {
     console.log("Listening on port: " + APP_PORT);
 
     /* For testing purpose pero dapat sa service lang tinatawag ang DAO */
-    await retrieveUserDao();
+    // await retrieveUserDao();
+    await createUserDao();
   });
 }

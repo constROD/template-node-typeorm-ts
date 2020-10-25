@@ -6,8 +6,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { ORM_DB_SCHEMA } from "../configs/app";
-import { generateSchemaEntityName } from "../utils/entities";
+import { ORM_DB_SCHEMA } from "../shared/configs/app";
+import { generateSchemaEntityName } from "../shared/utils/entities";
 
 @Entity("Users", { schema: ORM_DB_SCHEMA })
 export class UserEntity extends BaseEntity {

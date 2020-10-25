@@ -11,6 +11,8 @@ import {
   ORM_SYNCHRONIZE,
 } from "./app";
 
+console.log("path: ", path.join(__dirname, "../../entities/*.*"));
+
 export const ORM_CONFIG = {
   type: ORM_DB_TYPE,
   host: ORM_DB_HOST,
@@ -22,5 +24,9 @@ export const ORM_CONFIG = {
   synchronize: ORM_SYNCHRONIZE,
   name: "default",
   logging: true,
-  entities: [path.join(__dirname, "../entities/*.*")],
+  entities: [path.join(__dirname, "../../entities/*.*")],
+  migrations: [path.join(__dirname, "../../migrations/*.*")],
+  cli: {
+    migrationsDir: "src/migrations",
+  },
 } as Parameters<typeof createConnection>[0];
