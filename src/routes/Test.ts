@@ -1,21 +1,12 @@
-import { Request, Response, Router as useRouter } from "express";
+import { Router as useRouter } from "express";
+import { useTestController } from "../controllers/Test";
 
 const Router: useRouter = useRouter();
+const { getTests, createTest, updateTest, deleteTest } = useTestController();
 
-Router.get("/", (_: Request, res: Response) => {
-  res.send("GET");
-});
-
-Router.post("/", (_: Request, res: Response) => {
-  res.send("POST");
-});
-
-Router.put("/", (_: Request, res: Response) => {
-  res.send("PUT");
-});
-
-Router.delete("/", (_: Request, res: Response) => {
-  res.send("DELETE");
-});
+Router.get("/", getTests);
+Router.post("/", createTest);
+Router.put("/", updateTest);
+Router.delete("/", deleteTest);
 
 export default Router;
