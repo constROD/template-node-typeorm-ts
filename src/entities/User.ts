@@ -1,36 +1,16 @@
-import {
-  BaseEntity,
-  Column,
-  CreateDateColumn,
-  Entity,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from "typeorm";
+import { Column, Entity } from "typeorm";
 import { ORM_DB_SCHEMA } from "../shared/configs/app";
-import { useGenerateSchemaEntityName } from "../shared/utils/entities";
+import { Entities } from "../shared/constants/entities";
+import { CommonEntity } from "./Common";
 
-export const UserEntitySchema = useGenerateSchemaEntityName(
-  ORM_DB_SCHEMA,
-  "Users"
-);
+@Entity(Entities.Users, { schema: ORM_DB_SCHEMA })
+export class UserEntity extends CommonEntity {
+  @Column()
+  name: string;
 
-@Entity("Users", { schema: ORM_DB_SCHEMA })
-export class UserEntity extends BaseEntity {
-  @PrimaryGeneratedColumn("increment")
-  id: number;
+  @Column()
+  username: string;
 
-  @Column("varchar", { length: 300, nullable: true })
-  first_name: string;
-
-  @Column("varchar", { length: 300, nullable: true })
-  last_name: string;
-
-  @Column("integer", { nullable: true })
-  age: number;
-
-  @CreateDateColumn({ default: () => "NOW()" })
-  created_at: Date;
-
-  @UpdateDateColumn({ default: () => "NOW()" })
-  updated_at: Date;
+  @Column()
+  password: string;
 }
